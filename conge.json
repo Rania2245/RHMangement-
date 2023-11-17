@@ -1,0 +1,12 @@
+{
+  "conges": [
+    {
+        "id": 1,
+        "idEmploye": 123,
+        "date": "2023-12-01",
+        "heure": "Matin",
+        "description": "Congé pour des raisons personnelles",
+        "statut": "En attente"
+    }
+  ]
+}

@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-rh.component.css']
 })
 export class HomeRhComponent {
+  performanceFormOpen: boolean = false;
 
+  openPerformanceForm() {
+      this.performanceFormOpen = true;
+  }
+
+  closePerformanceForm() {
+      this.performanceFormOpen = false;
+  }
 }

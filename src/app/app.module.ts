@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListEmployeesDepComponent } from './Interfaces/RH/list-employees-dep/list-employees-dep.component';
 import { LoginRhComponent } from './Interfaces/RH/login-rh/login-rh.component';
+import { ListCongeComponent } from './Interfaces/RH/list-conge/list-conge.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { LoginRhComponent } from './Interfaces/RH/login-rh/login-rh.component';
     NavbarEmpComponent,
     LoginComponent,
     ListEmployeesDepComponent,
-    LoginRhComponent
+    LoginRhComponent,
+    ListCongeComponent
   ],
   imports: [
     BrowserModule,

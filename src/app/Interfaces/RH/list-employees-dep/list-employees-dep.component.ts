@@ -7,8 +7,16 @@ import { Component } from '@angular/core';
 })
 export class ListEmployeesDepComponent {
   testM: boolean = false;
+  performanceFormOpen: boolean =false;
   openM() {
     this.testM = !this.testM;
 
   }
+  openPerformanceForm() {
+    this.performanceFormOpen = true;
+}
+
+closePerformanceForm() {
+    this.performanceFormOpen = false;
+}
 }
