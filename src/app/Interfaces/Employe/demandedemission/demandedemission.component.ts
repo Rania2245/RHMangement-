@@ -44,7 +44,7 @@ export class DemandedemissionComponent implements OnInit {
     });
   }
 
-  // Function to submit demission request
+
   submitDemission() {
     if (this.demissionForm.valid) {
       // Assuming you have the employeId, you need to replace it with the actual value
