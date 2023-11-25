@@ -14,6 +14,8 @@ import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListEmployeesDepComponent } from './Interfaces/RH/list-employees-dep/list-employees-dep.component';
 import { LoginRhComponent } from './Interfaces/RH/login-rh/login-rh.component';
 import { ListCongeComponent } from './Interfaces/RH/list-conge/list-conge.component';
+import { DemandecongeComponent } from './Interfaces/Employe/demandeconge/demandeconge.component';
+import { DemandedemissionComponent } from './Interfaces/Employe/demandedemission/demandedemission.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +27,9 @@ import { ListCongeComponent } from './Interfaces/RH/list-conge/list-conge.compon
     LoginComponent,
     ListEmployeesDepComponent,
     LoginRhComponent,
-    ListCongeComponent
+    ListCongeComponent,
+    DemandecongeComponent,
+    DemandedemissionComponent
   ],
   imports: [
     BrowserModule,

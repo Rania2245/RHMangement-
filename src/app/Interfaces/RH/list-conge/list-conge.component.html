@@ -19,16 +19,16 @@
                    <ng-container *ngFor="let conge of conges">
         <tr>
    
-      <th scope="row">{{ conge.idEmploye }}</th>
+      <th scope="row">{{ conge.employeid }}</th>
       <td>{{ conge.date }} </td>
         <td>{{ conge.heure }}</td>
       <td>{{ conge.description }}</td>
       <td>
-      <a (click)="validerConge(conge.id)">Valider</a>
+      <button (click)="validerConge(conge.id)">Valider</button>
     </td>
     <td>
 
-      <a (click)="rejeterConge(conge.id)">Rejeter</a>
+      <button (click)="rejeterConge(conge.id)">Rejeter</button>
     </td>
    </tr>
 </ng-container>

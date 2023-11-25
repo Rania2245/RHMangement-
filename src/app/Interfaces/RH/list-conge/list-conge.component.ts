@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Conge } from 'src/app/Classes/conge';
 import { CongeService } from 'src/app/Services/conge-service.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { CongeService } from 'src/app/Services/conge-service.service';
   styleUrls: ['./list-conge.component.css']
 })
 export class ListCongeComponent implements OnInit {
-  conges!: any[];
+  conges!: Conge[];
 
   constructor(private congeService: CongeService) {}
   ngOnInit() {
@@ -19,13 +20,12 @@ export class ListCongeComponent implements OnInit {
   validerConge(idConge: number) {
     this.congeService.validerConge(idConge).subscribe(() => {
       // Mettez à jour la liste des congés après validation
-      const congeIndex = this.conges.findIndex((conge) => conge.id === idConge);
+      const congeIndex = this.conges.findIndex((c) => c.id === idConge);
       if (congeIndex !== -1) {
-        this.conges[congeIndex].statut = "Validé";
+        this.conges[congeIndex].statut = 'Validé';
       }
     });
-    alert("validé");
-
+    alert('Validé');
   }
 
   rejeterConge(idConge: number) {

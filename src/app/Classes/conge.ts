@@ -1,21 +1,23 @@
+import { Employe } from "./employe";
+
 export class Conge {
     id: number;
-    idEmploye: number;
-    date: string;
+    employeid: Employe;
+    date: Date;
     heure: string;
     description: string;
     statut: string; // Peut être 'En attente', 'Validé' ou 'Rejeté'
   
     constructor(
       id: number,
-      idEmploye: number,
-      date: string,
+      employeid: Employe,
+      date: Date,
       heure: string,
       description: string,
       statut: string
     ) {
       this.id = id;
-      this.idEmploye = idEmploye;
+      this.employeid = employeid;
       this.date = date;
       this.heure = heure;
       this.description = description;

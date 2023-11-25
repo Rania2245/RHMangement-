@@ -9,34 +9,35 @@ import { Conge } from '../Classes/conge';
   providedIn: 'root',
 })
 export class CongeService {
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'http://localhost:4200/DemandeConge';
 
   constructor(private http: HttpClient) {}
 
-  getConges(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/conges`);
+  getConges(): Observable<Conge[]> {
+    return this.http.get<Conge[]>(`${this.apiUrl}/leave-requests`); // Assurez-vous que l'URL correspond à votre backend
   }
+
   getCongeById(id: number): Observable<Conge> {
-    return this.http.get<Conge>(`${this.apiUrl}/conges/${id}`);
+    return this.http.get<Conge>(`${this.apiUrl}/leave-requests/${id}`); // Assurez-vous que l'URL correspond à votre backend
   }
 
   createConge(conge: Conge): Observable<Conge> {
-    return this.http.post<Conge>(`${this.apiUrl}/conges`, conge);
+    return this.http.post<Conge>(`${this.apiUrl}/leave-requests`, conge); // Assurez-vous que l'URL correspond à votre backend
   }
 
   updateConge(id: number, conge: Conge): Observable<Conge> {
-    return this.http.put<Conge>(`${this.apiUrl}/conges/${id}`, conge);
+    return this.http.patch<Conge>(`${this.apiUrl}/leave-requests/${id}`, conge);
   }
 
-  deleteConge(id: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/conges/${id}`);
+  deleteConge(id: number): Observable<Conge> {
+    return this.http.delete<Conge>(`${this.apiUrl}/leave-requests/${id}`);
   }
 
-  validerConge(idConge: number): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/conges/${idConge}/valider`, {});
+  validerConge(idConge: number): Observable<Conge> {
+    return this.http.patch<Conge>(`${this.apiUrl}/leave-requests/${idConge}/approve`, {});
   }
 
-  rejeterConge(idConge: number): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/conges/${idConge}/rejeter`, {});
+  rejeterConge(idConge: number): Observable<Conge> {
+    return this.http.patch<Conge>(`${this.apiUrl}/leave-requests/${idConge}/reject`, {});
   }
 }
