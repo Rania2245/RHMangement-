@@ -46,14 +46,15 @@ export class DemandedemissionComponent implements OnInit {
 
 
   submitDemission() {
-    if (this.demissionForm.valid) {
-      // Assuming you have the employeId, you need to replace it with the actual value
-      const employeId = this.id ; // Replace with the actual employeId
-
-      // Extract form values
-      const demissionData: Demission = this.demissionForm.value;
-
-      this.demissionService.createDemission(employeId, demissionData).subscribe(
+   
+      const employeeId = this.id; 
+      if (this.demissionForm.valid) {
+      const demissionData = { 
+       
+          ...this.demissionForm.value,
+          employeeId: this.id, // Include employeeId in the data
+        }; 
+      this.demissionService.createDemission(employeeId, demissionData).subscribe(
         (result) => {
           console.log('Demission request submitted successfully:', result);
           // You may want to navigate to a different page or show a success message

@@ -30,19 +30,6 @@ export class CalandrierService {
   getCalendrierEmpById(id: number): Observable<CalendrierEmp> {
     return this.http.get<CalendrierEmp>(`${URL}/${id}`);
   }
- /* Suivreperformance: async (employeId: number, date: Date) => {
-    const calendarEntry = await CalendrierEmp.findOne({ where: { employeId, jour: date } });
-    if (!calendarEntry) {
-      return 0;
-    }
-    const performance =
-      (calendarEntry.heureArriv.getHours() * 60 + calendarEntry.heureArriv.getMinutes()) -
-      (calendarEntry.heureDep.getHours() * 60 + calendarEntry.heureDep.getMinutes()) +
-      calendarEntry.heureSup -
-      calendarEntry.heureConge;
-
-    return performance;
-  }*/
   
 
 

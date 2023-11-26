@@ -33,13 +33,12 @@ export class DemandecongeComponent implements OnInit{
     this.demandeCongeForm = this.fb.group({
       startDate: [, Validators.required],
       endDate: ['', Validators.required],
-      heure: ['', Validators.required],
       description: ['', Validators.required],
     });
   }
   createLeaveRequest() {
     const employeeId = this.id; 
-    if (this.demandeCongeForm.valid) {// Replace with the actual employee ID
+    if (this.demandeCongeForm.valid) {
     const leaveRequestData = { 
      
         ...this.demandeCongeForm.value,

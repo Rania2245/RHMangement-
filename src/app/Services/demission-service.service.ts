@@ -7,10 +7,10 @@ import { Demission } from '../Classes/demission';
   providedIn: 'root'
 })
 export class DemissionServiceService {
-private api='http://localhost:4200/employees';
+private api='http://localhost:3001/employees';
 constructor(private http: HttpClient) {}
-createDemission(employeeId: number, data: any): Observable<Demission> {
-  const url = `${this.api}/createDemission`; // Replace with your actual API endpoint
-  return this.http.post<Demission>(url, { employeeId, data });
+createDemission(employeeId: number, data: any): Observable<any> {
+  const url = `${this.api}/${employeeId}/demissions`;
+  return this.http.post<any>(url, { employeeId, data });
 }
 }

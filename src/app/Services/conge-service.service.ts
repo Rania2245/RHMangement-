@@ -37,7 +37,7 @@ createLeaveRequest(employeeId: number, data: any): Observable<any> {
   }
 
   validerConge(idConge: number): Observable<Conge> {
-    return this.http.patch<Conge>(`${this.apiUrl}/leave-requests/${idConge}`, {});
+    return this.http.patch<Conge>(`${this.apiUrl}/accept-leave-request/${idConge}`, {});
   }
 
  /* rejeterConge(idConge: number): Observable<Conge> {

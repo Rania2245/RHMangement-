@@ -5,7 +5,7 @@ export class Demission {
     constructor(
         id:number,
         employe:Employe,
-        date: Date,
+        submissionDate: Date,
         reason: string,
         statut: string
     ){}

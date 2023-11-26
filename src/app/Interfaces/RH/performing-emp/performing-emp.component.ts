@@ -12,14 +12,16 @@ export class PerformingEmpComponent implements AfterViewInit{
   performanceData: number[] = [];
   calendrierEmp!: CalendrierEmp;
   constructor(private calandrierS: CalandrierService) {}
-  objectifData = this.calendrierEmp.objectif;
+  objectifData: number = 0; // Initialize with a default value
+
   ngAfterViewInit(): void {
     this.calandrierS.getCalendrierEmpById(1).subscribe((data) => {
       this.calendrierEmp = data;
+      this.objectifData = this.calendrierEmp.objectif; // Update objectifData here
       this.configureChart();
     });
-   
-       }
+  }
+       
   
     private configureChart(): void {
       const ctx = document.getElementById('performanceChart') as HTMLCanvasElement;

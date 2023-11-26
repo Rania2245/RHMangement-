@@ -170,7 +170,13 @@
         </div>
     </div>
     <!--end bloc courbe perfermance-->
-
+    <h5>Comments</h5>
+    <div>
+        <h3>Comments:</h3>
+        <ul>
+          <li *ngFor="let comment of comments">{{ comment.content }} - {{ comment.date | date:'short' }}</li>
+        </ul>
+      </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
