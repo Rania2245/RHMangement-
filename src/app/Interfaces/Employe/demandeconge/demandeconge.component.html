@@ -1,14 +1,14 @@
 <app-navbar-emp></app-navbar-emp>
 <div class="demande-conge">
     <h2>Demande de Congé</h2>
-    <form [formGroup]="demandeCongeForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="demandeCongeForm" (ngSubmit)=" createLeaveRequest()">
       <div class="form-group">
-        <label for="date">Date:</label>
-        <input type="date" id="date" formControlName="date" required />
+        <label for="date">startDate:</label>
+        <input type="date" id="startDate" formControlName="startDate" required />
       </div>
       <div class="form-group">
-        <label for="heure">Heure:</label>
-        <input type="text" id="heure" formControlName="heure" required />
+        <label for="heure">endDate:</label>
+        <input type="text" id="endDate" formControlName="endDate" required />
       </div>
       <div class="form-group">
         <label for="description">Description:</label>

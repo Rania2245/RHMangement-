@@ -9,7 +9,7 @@ import { Conge } from '../Classes/conge';
   providedIn: 'root',
 })
 export class CongeService {
-  private apiUrl = 'http://localhost:4200/DemandeConge';
+  private apiUrl = 'http://localhost:3001/DemandeConge';
 
   constructor(private http: HttpClient) {}
 
@@ -21,10 +21,13 @@ export class CongeService {
     return this.http.get<Conge>(`${this.apiUrl}/leave-requests/${id}`); // Assurez-vous que l'URL correspond à votre backend
   }
 
-  createConge(conge: Conge): Observable<Conge> {
+ /* createConge(conge: Conge): Observable<Conge> {
     return this.http.post<Conge>(`${this.apiUrl}/leave-requests`, conge); // Assurez-vous que l'URL correspond à votre backend
   }
-
+*/
+createLeaveRequest(employeeId: number, data: any): Observable<any> {
+  return this.http.post(`${this.apiUrl}/${employeeId}/leave-request`, data);
+}
   updateConge(id: number, conge: Conge): Observable<Conge> {
     return this.http.patch<Conge>(`${this.apiUrl}/leave-requests/${id}`, conge);
   }
@@ -34,10 +37,14 @@ export class CongeService {
   }
 
   validerConge(idConge: number): Observable<Conge> {
-    return this.http.patch<Conge>(`${this.apiUrl}/leave-requests/${idConge}/approve`, {});
+    return this.http.patch<Conge>(`${this.apiUrl}/leave-requests/${idConge}`, {});
   }
 
-  rejeterConge(idConge: number): Observable<Conge> {
+ /* rejeterConge(idConge: number): Observable<Conge> {
     return this.http.patch<Conge>(`${this.apiUrl}/leave-requests/${idConge}/reject`, {});
+  }*/
+  rejectLeaveRequest(idConge: number): Observable<any> {
+    const url = `${this.apiUrl}/reject-leave-request/${idConge}`;
+    return this.http.patch(url, {});
   }
 }

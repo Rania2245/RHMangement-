@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CalandrierService } from 'src/app/Services/calandrier.service';
 
 @Component({
   selector: 'app-list-employees-dep',
@@ -18,5 +19,21 @@ export class ListEmployeesDepComponent {
 
 closePerformanceForm() {
     this.performanceFormOpen = false;
+}
+idCalendrierEmp!: number;
+objectif!: number;
+
+constructor(private calandrierS: CalandrierService) {}
+
+creerObjectifPerformance(): void {
+  this.calandrierS.createObjectifPerformance(this.idCalendrierEmp, this.objectif).subscribe(
+    (response) => {
+      console.log('Objectif de performance créé avec succès');
+      // Mettez à jour votre modèle ou effectuez d'autres actions nécessaires
+    },
+    (error) => {
+      console.error('Erreur lors de la création de l\'objectif de performance', error);
+    }
+  );
 }
 }

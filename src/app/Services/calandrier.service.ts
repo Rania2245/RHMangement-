@@ -23,6 +23,13 @@ export class CalandrierService {
   AjouterHeureCong(id:number,heur:number):Observable <CalendrierEmp>{
     return this.http.post<CalendrierEmp>(URL+"/modifierHeureConge/"+id,heur);
   }
+  createObjectifPerformance(idCalendrierEmp: number, objectif: number): Observable<any> {
+    const url = `${URL}/objectifPerformance/${idCalendrierEmp}`;
+    return this.http.post(url, { objectif });
+  }
+  getCalendrierEmpById(id: number): Observable<CalendrierEmp> {
+    return this.http.get<CalendrierEmp>(`${URL}/${id}`);
+  }
  /* Suivreperformance: async (employeId: number, date: Date) => {
     const calendarEntry = await CalendrierEmp.findOne({ where: { employeId, jour: date } });
     if (!calendarEntry) {

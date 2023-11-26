@@ -31,14 +31,34 @@ export class DemandecongeComponent implements OnInit{
 
   initForm(): void {
     this.demandeCongeForm = this.fb.group({
-      //employe: [, Validators.required],
-      date: ['', Validators.required],
+      startDate: [, Validators.required],
+      endDate: ['', Validators.required],
       heure: ['', Validators.required],
       description: ['', Validators.required],
     });
   }
-
-  onSubmit(): void {
+  createLeaveRequest() {
+    const employeeId = this.id; 
+    if (this.demandeCongeForm.valid) {// Replace with the actual employee ID
+    const leaveRequestData = { 
+     
+        ...this.demandeCongeForm.value,
+        employeeId: this.id, // Include employeeId in the data
+      }; 
+  
+    this.congeService.createLeaveRequest(employeeId, leaveRequestData).subscribe(
+      (response) => {
+        console.log('Leave request created successfully:', response);
+        // Handle the response or update your component as needed
+      },
+      (error) => {
+        console.error('Error creating leave request:', error);
+        // Handle errors
+      }
+    );
+    };
+  }
+ /* onSubmit(): void {
     if (this.demandeCongeForm.valid) {
       const congeData = {
         ...this.demandeCongeForm.value,
@@ -57,6 +77,6 @@ export class DemandecongeComponent implements OnInit{
         }
       );
     }
-  }
+  }*/
 
 }

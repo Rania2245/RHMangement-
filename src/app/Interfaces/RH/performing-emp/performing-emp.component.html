@@ -93,9 +93,11 @@
         </div>
         <!-- Card Body -->
         <div class="card-body">
-            <div class="chart-area">
-                <canvas id="myAreaChart"></canvas>
-            </div>
+            <td>
+                <div *ngIf="performanceData.length > 0">
+                    <canvas id="performanceChart"></canvas>
+                  </div>
+            </td>
         </div>
     </div>
 </div>

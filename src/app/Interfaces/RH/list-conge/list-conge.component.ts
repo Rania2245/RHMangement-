@@ -17,7 +17,7 @@ export class ListCongeComponent implements OnInit {
     });
   }
 
-  validerConge(idConge: number) {
+ /* validerConge(idConge: number) {
     this.congeService.validerConge(idConge).subscribe(() => {
       // Mettez à jour la liste des congés après validation
       const congeIndex = this.conges.findIndex((c) => c.id === idConge);
@@ -26,9 +26,9 @@ export class ListCongeComponent implements OnInit {
       }
     });
     alert('Validé');
-  }
+  }*/
 
-  rejeterConge(idConge: number) {
+  /*rejeterConge(idConge: number) {
     this.congeService.rejeterConge(idConge).subscribe(() => {
       // Mettez à jour la liste des congés après rejet
       const congeIndex = this.conges.findIndex((conge) => conge.id === idConge);
@@ -36,7 +36,30 @@ export class ListCongeComponent implements OnInit {
         this.conges[congeIndex].statut = 'Rejeté';
       }
     });
+  }*/
+  onRejectLeaveRequest(idConge: number): void {
+    this.congeService.rejectLeaveRequest(idConge).subscribe(
+      response => {
+        // Handle success, if needed
+        console.log('Leave request rejected successfully');
+      },
+      error => {
+        // Handle error, if needed
+        console.error('Error rejecting leave request:', error);
+      }
+    );
   }
-
+  validerConge(idConge: number): void {
+    this.congeService.validerConge(idConge).subscribe(
+      response => {
+        // Handle success, if needed
+        console.log('Leave request rejected successfully');
+      },
+      error => {
+        // Handle error, if needed
+        console.error('Error rejecting leave request:', error);
+      }
+    );
+  }
 
 }
